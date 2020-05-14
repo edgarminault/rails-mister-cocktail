@@ -20,14 +20,23 @@
     <div class="card-body">
       <h3 class="card-title">Info</h3>
       <p class="card-text">Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi temporibus facilis id nemo aperiam sunt optio doloremque ducimus minus pariatur, tempore numquam dolorum autem culpa ea voluptatum aspernatur, molestiae repellat.</p>
+      <% dose = 0 %>
+      <% @doses.each do |dose| %>
+        <p>
+          <%= dose.description %> of <%= dose.ingredient.name %>.
+          <%= link_to "Delete", dose_path(dose.id), method: "delete", :class => "btn btn-danger" %>
+        </p>
+      <% end %>
+      <h4>Add doses</h4>
+
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.input :description%>
+        <%= f.association :ingredient %>
+        <%= f.submit%>
+      <% end %>
+
       <p class="card-text"><i class="fas fa-euro-sign"></i>15</p>
       <%= link_to 'Back', cocktails_path, :class => "btn btn-primary" %> |
-      <%= link_to 'Edit', cocktails_path, :class => "btn btn-primary" %> |
-      <%= link_to 'Delete', cocktails_path,
-            method: :delete,
-            data: { confirm: "Are you sure?" },
-            :class => "btn btn-danger" %>
-    </div>
   </div>
 
 </div>
