@@ -7,6 +7,8 @@
 
 <div class="container overlap text-align-center">
 
+  <!-- Title card -->
+
   <div class="card  align-middle m-3 w-100" style="width: 18rem;">
     <!-- Contains the info about restaurant -->
     <div class="card-body">
@@ -15,28 +17,38 @@
     </div>
   </div>
 
-  <div class="card align-middle m-3 w-100" style="width: 18rem;">
-    <!-- Contains the info about restaurant -->
+  <!-- Info & Form container -->
+
+  <div class="container d-flex">
+
+    <div class="card align-middle w-100" style="width: 18rem;">
+      <!-- Contains the info about restaurant -->
+      <div class="card-body">
+        <h3 class="card-title">Info</h3>
+        <p class="card-text">Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi temporibus facilis id nemo aperiam sunt optio doloremque ducimus minus pariatur, tempore numquam dolorum autem culpa ea voluptatum aspernatur, molestiae repellat.</p>
+        <% dose_index = 0 %>
+        <% @doses.each do |dose| %>
+          <% dose_index += 1 %>
+          <p>
+            Dose <%= dose_index %> - <%= dose.description %> of <%= dose.ingredient.name %>.
+            <%= link_to "Delete", dose_path(dose.id), method: "delete", :class => "btn btn-danger" %>
+          </p>
+        <% end %>
+        <%= link_to 'Back', cocktails_path, :class => "btn btn-primary w-100" %>
+      </div>
+    </div>
+
     <div class="card-body">
-      <h3 class="card-title">Info</h3>
-      <p class="card-text">Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi temporibus facilis id nemo aperiam sunt optio doloremque ducimus minus pariatur, tempore numquam dolorum autem culpa ea voluptatum aspernatur, molestiae repellat.</p>
-      <% dose = 0 %>
-      <% @doses.each do |dose| %>
-        <p>
-          <%= dose.description %> of <%= dose.ingredient.name %>.
-          <%= link_to "Delete", dose_path(dose.id), method: "delete", :class => "btn btn-danger" %>
-        </p>
-      <% end %>
-      <h4>Add doses</h4>
+        <h3 class="card-title">Add doses</h3>
+        <%= simple_form_for [@cocktail, @dose] do |f| %>
+          <%= f.input :description%>
+          <%= f.association :ingredient %>
+          <%= f.submit%>
+        <% end %>
+      </div>
+    </div>
 
-      <%= simple_form_for [@cocktail, @dose] do |f| %>
-        <%= f.input :description%>
-        <%= f.association :ingredient %>
-        <%= f.submit%>
-      <% end %>
 
-      <p class="card-text"><i class="fas fa-euro-sign"></i>15</p>
-      <%= link_to 'Back', cocktails_path, :class => "btn btn-primary" %> |
+
   </div>
-
 </div>
