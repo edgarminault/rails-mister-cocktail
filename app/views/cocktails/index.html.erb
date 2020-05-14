@@ -5,7 +5,7 @@
         <div class="card align-middle m-3 ">
           <img src="http://cocktail.itsplanet.eu/img/cocktail/2017_1.jpg" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title"><%= cocktail.name %></h5>
+            <h5 class="card-title"><%= link_to cocktail.name, cocktail_path(cocktail) %></h5>
           </div>
         </div>
       </div>
