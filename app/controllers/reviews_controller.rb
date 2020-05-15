@@ -8,11 +8,13 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.cocktail = @cocktail
     @reviews = @cocktail.reviews
-    # if @review.save
+    if @review.save
       redirect_to cocktail_path(@cocktail)
-    # else
-    #   render 'cocktails#show'
-    # end
+    else
+      @doses = @cocktail.doses
+      @dose = Dose.new
+      render 'cocktails/show'
+    end
   end
 
   def destroy
@@ -25,6 +27,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:content)
+    params.require(:review).permit(:content, :grade)
   end
 end
