@@ -17,8 +17,7 @@ ingredients = JSON.parse(ingredients_serialized)
 puts 'Creating ingredients from the JSON.'
 ingredients["drinks"].each do |element|
   ingredient = Ingredient.new(name: element["strIngredient1"])
-  ingredient.save!
-  puts "Ingredient added."
+  ingredient.save
 end
 puts 'All ingredients added!'
 
