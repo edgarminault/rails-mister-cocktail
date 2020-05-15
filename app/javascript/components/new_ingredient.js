@@ -1,10 +1,14 @@
 const newIngredient = () => {
-  const ingredientForm = document.querySelector("#form-dose");
+  event.preventDefault();
+  const ingredientForm = document.querySelector("#form-dose-none");
   const button = document.querySelector('#add-ing-button');
   console.log(button)
   button.addEventListener("click", (event) => {
-    console.log(event)
-    ingredientForm.style.display = "block"
+    if (ingredientForm.style.display.length === 0) {
+      ingredientForm.style.display = "block"
+    } else {
+      ingredientForm.style.display = ""
+    }
   });
 };
 

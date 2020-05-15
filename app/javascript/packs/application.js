@@ -17,8 +17,9 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 import 'bootstrap';
-import {new_ingredient} from '../components/new_ingredient';
+import {newIngredient} from '../components/new_ingredient';
 document.addEventListener('turbolinks:load', () => {
+  console.log("toto")
   newIngredient();
 });
 
