@@ -15,3 +15,11 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import 'bootstrap';
+import {new_ingredient} from '../components/new_ingredient';
+document.addEventListener('turbolinks:load', () => {
+  newIngredient();
+});
+
+

@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     else
       @doses = @cocktail.doses
       @dose = Dose.new
-      render 'cocktails/show'
+      render 'cocktail/show'
     end
   end
 

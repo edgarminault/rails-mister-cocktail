@@ -11,6 +11,17 @@ require 'faker'
 
 url_bis = "https://gist.githubusercontent.com/renandanton/8d99dab65bf9fb5b4465ded7ab73a7df/raw/2c5e0480bd239f76b055bb09f236f365e1530634/cocktails.json"
 
+url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+ingredients_serialized = open(url).read
+ingredients = JSON.parse(ingredients_serialized)
+puts 'Creating ingredients from the JSON.'
+ingredients["drinks"].each do |element|
+  ingredient = Ingredient.new(name: element["strIngredient1"])
+  ingredient.save!
+  puts "Ingredient added."
+end
+puts 'All ingredients added!'
+
 drinks_serialized = open(url_bis).read
 drinks = JSON.parse(drinks_serialized)
 

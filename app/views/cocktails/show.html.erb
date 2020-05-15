@@ -1,9 +1,12 @@
+<!-- Banner -->
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://wisk.ai/wp-content/uploads/2019/07/liquor-inventory-scale-2.jpg);">
   <div class="container">
     <h1><%= @cocktail.name %></h1>
     <p>Hell of a cocktail!</p>
   </div>
 </div>
+
+<!-- Intro Card with name and recipe -->
 
 <div class="cards-container overlap text-align-center">
 
@@ -44,12 +47,15 @@
     <div class="card align-middle w-90">
       <img src="https://image.freepik.com/free-photo/male-bartender-pouring-cocktail-from-shaker_23-2148209359.jpg" class="card-img-top" alt="...">
       <div class="card-body">
-        <h3 class="card-title">New dose</h3>
-        <%= simple_form_for [@cocktail, @dose] do |f| %>
-          <%= f.input :description%>
-          <%= f.association :ingredient %>
-          <%= f.submit class: 'btn btn-success w-100'%>
-        <% end %>
+      <h3 class="card-title">New dose</h3>
+      <a href="#" class="btn btn-primary w-100" id="add-ing-button">Add a dose!</a>
+        <div id="form-dose">
+          <%= simple_form_for [@cocktail, @dose] do |f| %>
+            <%= f.input :description%>
+            <%= f.association :ingredient %>
+            <%= f.submit class: 'btn btn-success w-100'%>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
