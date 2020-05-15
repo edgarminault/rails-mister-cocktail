@@ -23,4 +23,10 @@ document.addEventListener('turbolinks:load', () => {
   newIngredient();
 });
 
+import {newReview} from '../components/new_review';
+document.addEventListener('turbolinks:load', () => {
+  console.log("toto")
+  newReview();
+});
+
 
