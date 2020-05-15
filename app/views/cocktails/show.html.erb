@@ -5,15 +5,16 @@
   </div>
 </div>
 
-<div class="container overlap text-align-center">
+<div class="cards-container overlap text-align-center">
 
   <!-- Title card -->
-
-  <div class="card  align-middle m-3 w-100" style="width: 18rem;">
-    <!-- Contains the info about restaurant -->
-    <div class="card-body">
-      <h3 class="card-title"><%= @cocktail.name %></h5>
-      <p class="card-text">Recipe</p>
+  <div class="container">
+    <div class="card  align-middle mb-3 w-100" style="width: 18rem;">
+      <!-- Contains the info about restaurant -->
+      <div class="card-body">
+        <h3 class="card-title"><%= @cocktail.name %></h5>
+        <p class="card-text">Recipe</p>
+      </div>
     </div>
   </div>
 
@@ -44,12 +45,6 @@
       <img src="https://image.freepik.com/free-photo/male-bartender-pouring-cocktail-from-shaker_23-2148209359.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h3 class="card-title">New dose</h3>
-        <div class="flash flash-success alert alert-dismissible fade show" role="alert">
-          <span><strong>Yay!</strong> 🎉 you successfully signed in to our service.</span>
-          <a data-dismiss="alert" aria-label="Close">
-            <i class="fas fa-times"></i>
-          </a>
-        </div>
         <%= simple_form_for [@cocktail, @dose] do |f| %>
           <%= f.input :description%>
           <%= f.association :ingredient %>
@@ -81,6 +76,4 @@
         </div>
     </div>
   </div>
-
-
 </div>
