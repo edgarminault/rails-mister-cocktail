@@ -3,7 +3,7 @@
     <% @cocktails.each do |cocktail| %>
       <div class="col-sm-4 col-6">
         <div class="card align-middle m-3 ">
-          <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/fresh-home-made-tequila-sunrise-cocktails-royalty-free-image-1581697157.jpg?crop=0.670xw:1.00xh;0.140xw,0&resize=480:*" class="card-img-top" alt="...">
+          <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill %>
           <div class="card-body text-center">
             <h3 class="card-title card-title-link"><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
           </div>

@@ -27,30 +27,33 @@
         <h3 class="card-title">Info</h3>
         <p class="card-text">Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi temporibus facilis id nemo aperiam sunt optio doloremque ducimus minus pariatur, tempore numquam dolorum autem culpa ea voluptatum aspernatur, molestiae repellat.</p>
         <% dose_index = 0 %>
+        <h3 class="card-title">Doses</h3>
         <% @doses.each do |dose| %>
           <% dose_index += 1 %>
-
-          <div class="card align-middle-w-100 my-1">
-            <div class="card-body small-card d-flex justify-content-between">
-              <p class=" align-middle">Dose <%= dose_index %> - <%= dose.description %> of <%= dose.ingredient.name %>.</p>
-              <%= link_to "Delete", dose_path(dose.id), method: "delete", :class => "btn btn-danger" %>
-            </div>
+          <div class="flex">
+            <p class="">Dose <%= dose_index %> - <%= dose.description %> of <%= dose.ingredient.name %>. </p>
+            <%= link_to "Delete", dose_path(dose.id), method: "delete", :class => "btn btn-danger" %>
           </div>
-
         <% end %>
-        <%= link_to 'Back', cocktails_path, :class => "btn btn-primary w-100" %>
+        <%= link_to 'Back', cocktails_path, :class => "btn btn-primary w-100 align-bottom" %>
       </div>
     </div>
 
     <!-- Form to add a dose -->
-    <div class="card align-middle w-100 p-3">
-
+    <div class="card align-middle w-90">
+      <img src="https://image.freepik.com/free-photo/male-bartender-pouring-cocktail-from-shaker_23-2148209359.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h3 class="card-title">New dose</h3>
+        <div class="flash flash-success alert alert-dismissible fade show" role="alert">
+          <span><strong>Yay!</strong> 🎉 you successfully signed in to our service.</span>
+          <a data-dismiss="alert" aria-label="Close">
+            <i class="fas fa-times"></i>
+          </a>
+        </div>
         <%= simple_form_for [@cocktail, @dose] do |f| %>
           <%= f.input :description%>
           <%= f.association :ingredient %>
-          <%= f.submit%>
+          <%= f.submit class: 'btn btn-success w-100'%>
         <% end %>
       </div>
     </div>
@@ -72,7 +75,7 @@
             <%= simple_form_for [@cocktail, @review] do |f| %>
               <%= f.input :content%>
               <%= f.input :grade %>
-              <%= f.submit%>
+              <%= f.submit class: 'btn btn-success w-100'%>
             <% end %>
           </div>
         </div>
